@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陶光品的博客</title>
+  
+  <subtitle>Better than Yesterday</subtitle>
+  <link href="http://localhost:4000/atom.xml" rel="self"/>
+  
+  <link href="http://localhost:4000/"/>
+  <updated>2024-03-18T14:55:07.950Z</updated>
+  <id>http://localhost:4000/</id>
+  
+  <author>
+    <name>Guangpin Tao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VRP-SAM(CVPR2024)</title>
+    <link href="http://localhost:4000/2024/03/18/VRP-SAM-CVPR2024/"/>
+    <id>http://localhost:4000/2024/03/18/VRP-SAM-CVPR2024/</id>
+    <published>2024-03-18T14:54:26.000Z</published>
+    <updated>2024-03-18T14:55:07.950Z</updated>
+    
+    
+    
+    
+    
+    <category term="CVPR2024" scheme="http://localhost:4000/tags/CVPR2024/"/>
+    
+  </entry>
+  
+</feed>
