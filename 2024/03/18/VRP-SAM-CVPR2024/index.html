@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VRP-SAM-SAM-with-Visual-Reference-Prompt"><span class="toc-text">VRP-SAM: SAM with Visual Reference Prompt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95"><span class="toc-text">提出方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">实验结果</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VRP-SAM-SAM-with-Visual-Reference-Prompt"><span class="toc-text">VRP-SAM: SAM with Visual Reference Prompt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95"><span class="toc-text">提出方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">实验结果</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -152,31 +152,24 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h1 id="VRP-SAM-SAM-with-Visual-Reference-Prompt"><a href="#VRP-SAM-SAM-with-Visual-Reference-Prompt" class="headerlink" title="VRP-SAM: SAM with Visual Reference Prompt"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.17726">VRP-SAM: SAM with Visual Reference Prompt</a></h1><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-2.png"  /></center>
-## 解决问题
-Empowers the Segment Anything Model (SAM) to utilize annotated reference images as prompts for segmentation.
-
+        <h1 id="VRP-SAM-SAM-with-Visual-Reference-Prompt"><a href="#VRP-SAM-SAM-with-Visual-Reference-Prompt" class="headerlink" title="VRP-SAM: SAM with Visual Reference Prompt"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.17726">VRP-SAM: SAM with Visual Reference Prompt</a></h1><p><img src="/img/image-2.png"></p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>Empowers the Segment Anything Model (SAM) to utilize annotated reference images as prompts for segmentation.</p>
 <p>Visual reference segmentation with minimal learnable parameters and strong generalization capabilities.</p>
-<h2 id="提出方法"><a href="#提出方法" class="headerlink" title="提出方法"></a>提出方法</h2><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image.png"  /></center>
+<h2 id="提出方法"><a href="#提出方法" class="headerlink" title="提出方法"></a>提出方法</h2><p><img src="/img/image.png"></p>
 <center>VRPSAM 接受point, scribble, box或者mask标注好的参考图像 </center>
 
-<center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-1.png"  /></center>
-
+<p><img src="/img/image-1.png"></p>
 <center>Visual reference Prompt Encoder包括Feature Augmenter和Prompt Generator</center>
 
 <br>
 Feature Augmenter中 Image encoder是固定的ResNet50, 使用reference的MaskAvgPool特征和前景mask作为提示, Prompt Generator 使用N个VRP quries首先和参考图像做交互学习分割目标知识，然后和目标图像做交互获得前景信息，最后经SA得到和SAM对齐的Prompts（听上去很玄乎）
 
-<h2 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h2><p>二分类损失和Dice Loss作为损失函数:</p>
-<center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-3.png"  /></center>
-<br>
-实验设置： 
-- Few-shot setting on COCO-20<sup>i</sup>（60 train base+20 test novel） and Pascal-5<sup>i</sup> datasets(15 train base+5 test novel), randomly sampled 1000 reference-target pairs in each fold for evaluation.
-- 使用SEEM生成point, cribble和box annotations.
-
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="/2024/03/18/VRP-SAM-CVPR2024/image-4.png" class="">
-<center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-5.png"  /></center>
-
+<h2 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h2><p>二分类损失和Dice Loss作为损失函数:<br><img src="/img/image-3.png"><br><br><br>实验设置： </p>
+<ul>
+<li>Few-shot setting on COCO-20<sup>i</sup>（60 train base+20 test novel） and Pascal-5<sup>i</sup> datasets(15 train base+5 test novel), randomly sampled 1000 reference-target pairs in each fold for evaluation.</li>
+<li>使用SEEM生成point, cribble和box annotations.</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/img/image-4.png"><br><img src="/img/image-5.png"></p>
 
         
         <br />

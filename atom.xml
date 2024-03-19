@@ -3,11 +3,11 @@
   <title>陶光品的博客</title>
   
   <subtitle>Better than Yesterday</subtitle>
-  <link href="https://guangpintao.github.io/atom.xml" rel="self"/>
+  <link href="http://localhost:4000/atom.xml" rel="self"/>
   
-  <link href="https://guangpintao.github.io/"/>
-  <updated>2024-03-19T12:33:03.880Z</updated>
-  <id>https://guangpintao.github.io/</id>
+  <link href="http://localhost:4000/"/>
+  <updated>2024-03-19T12:45:40.346Z</updated>
+  <id>http://localhost:4000/</id>
   
   <author>
     <name>Guangpin Tao</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>VRPSAM--SAM with Visual Reference Prompt</title>
-    <link href="https://guangpintao.github.io/2024/03/18/VRP-SAM-CVPR2024/"/>
-    <id>https://guangpintao.github.io/2024/03/18/VRP-SAM-CVPR2024/</id>
+    <link href="http://localhost:4000/2024/03/18/VRP-SAM-CVPR2024/"/>
+    <id>http://localhost:4000/2024/03/18/VRP-SAM-CVPR2024/</id>
     <published>2024-03-18T14:54:26.000Z</published>
-    <updated>2024-03-19T12:33:03.880Z</updated>
+    <updated>2024-03-19T12:45:40.346Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="VRP-SAM-SAM-with-Visual-Reference-Prompt"><a href="#VRP-SAM-SAM-with-Visual-Reference-Prompt" class="headerlink" title="VRP-SAM: SAM with Visual Reference Prompt"></a><a href="https://arxiv.org/pdf/2402.17726">VRP-SAM: SAM with Visual Reference Prompt</a></h1><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-2.png"  /></center>## 解决问题Empowers the Segment Anything Model (SAM) to utilize annotated reference images as prompts for segmentation.<p>Visual reference segmentation with minimal learnable parameters and strong generalization capabilities.</p><h2 id="提出方法"><a href="#提出方法" class="headerlink" title="提出方法"></a>提出方法</h2><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image.png"  /></center><center>VRPSAM 接受point, scribble, box或者mask标注好的参考图像 </center><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-1.png"  /></center><center>Visual reference Prompt Encoder包括Feature Augmenter和Prompt Generator</center><br>Feature Augmenter中 Image encoder是固定的ResNet50, 使用reference的MaskAvgPool特征和前景mask作为提示, Prompt Generator 使用N个VRP quries首先和参考图像做交互学习分割目标知识，然后和目标图像做交互获得前景信息，最后经SA得到和SAM对齐的Prompts（听上去很玄乎）<h2 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h2><p>二分类损失和Dice Loss作为损失函数:</p><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-3.png"  /></center><br>实验设置： - Few-shot setting on COCO-20<sup>i</sup>（60 train base+20 test novel） and Pascal-5<sup>i</sup> datasets(15 train base+5 test novel), randomly sampled 1000 reference-target pairs in each fold for evaluation.- 使用SEEM生成point, cribble和box annotations.<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><img src="/2024/03/18/VRP-SAM-CVPR2024/image-4.png" class=""><center><img src="/2024/03/18/VRP-SAM-CVPR2024/image-5.png"  /></center>]]></content>
+    <content type="html"><![CDATA[<h1 id="VRP-SAM-SAM-with-Visual-Reference-Prompt"><a href="#VRP-SAM-SAM-with-Visual-Reference-Prompt" class="headerlink" title="VRP-SAM: SAM with Visual Reference Prompt"></a><a href="https://arxiv.org/pdf/2402.17726">VRP-SAM: SAM with Visual Reference Prompt</a></h1><p><img src="/img/image-2.png"></p><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>Empowers the Segment Anything Model (SAM) to utilize annotated reference images as prompts for segmentation.</p><p>Visual reference segmentation with minimal learnable parameters and strong generalization capabilities.</p><h2 id="提出方法"><a href="#提出方法" class="headerlink" title="提出方法"></a>提出方法</h2><p><img src="/img/image.png"></p><center>VRPSAM 接受point, scribble, box或者mask标注好的参考图像 </center><p><img src="/img/image-1.png"></p><center>Visual reference Prompt Encoder包括Feature Augmenter和Prompt Generator</center><br>Feature Augmenter中 Image encoder是固定的ResNet50, 使用reference的MaskAvgPool特征和前景mask作为提示, Prompt Generator 使用N个VRP quries首先和参考图像做交互学习分割目标知识，然后和目标图像做交互获得前景信息，最后经SA得到和SAM对齐的Prompts（听上去很玄乎）<h2 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h2><p>二分类损失和Dice Loss作为损失函数:<br><img src="/img/image-3.png"><br><br><br>实验设置： </p><ul><li>Few-shot setting on COCO-20<sup>i</sup>（60 train base+20 test novel） and Pascal-5<sup>i</sup> datasets(15 train base+5 test novel), randomly sampled 1000 reference-target pairs in each fold for evaluation.</li><li>使用SEEM生成point, cribble和box annotations.</li></ul><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/img/image-4.png"><br><img src="/img/image-5.png"></p>]]></content>
     
     
       
@@ -34,7 +34,7 @@
     
     
     
-    <category term="CVPR2024" scheme="https://guangpintao.github.io/tags/CVPR2024/"/>
+    <category term="CVPR2024" scheme="http://localhost:4000/tags/CVPR2024/"/>
     
   </entry>
   
