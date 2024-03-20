@@ -168,11 +168,10 @@
 
 <h4 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h4><p><img src="/img/image-8.png" alt="alt text"></p>
 <ol>
-<li><p>使用<strong>Vector-Quantized Latent Space</strong>mask结构先验，使用训练好的Encoder latent表示+index embedding:<br>$$v_{M}=Embed(q(E(M)))$$ 作为transformer的输入， 论文说使用现有的VQ-GAN将图像编码到隐空间性能下降，原因是已有VQ-GAN的训练数据与AS不一致，论文采用预训练的ResNet得到图像latent表示作为tranformer输入。</p>
+<li>使用<strong>Vector-Quantized Latent Space</strong>mask结构先验，使用训练好的Encoder latent表示+index embedding:<br><script type="math/tex">v_{M}=Embed(q(E(M)))</script> 作为transformer的输入， 论文说使用现有的VQ-GAN将图像编码到隐空间性能下降，原因是已有VQ-GAN的训练数据与AS不一致，论文采用预训练的ResNet得到图像latent表示作为tranformer输入。</li>
+<li><p>基于上述$v_{img}$和可见分割表示$v_{\hat{M}_v}$（通过附加学习任务得到）自回归预测$v_{M_{a}}$。预测的输入是$cat(v_{img},v_{\hat{M}_v},\hat{v}$) ，$\hat{v}$是跟$v_{\hat{M}_v}$相同维度的全[MASK] token。</p>
 </li>
-<li><p>基于上述$v_{img}$和可见分割表示$v_{\hat{M}<em>v}$（通过附加学习任务得到）自回归预测$v</em>{M_{a}}$。预测的输入是$cat(v_{img},v_{\hat{M}<em>v},\hat{v}$) ，$\hat{v}$是跟$v</em>{\hat{M}_v}$相同维度的全[MASK] token。</p>
-</li>
-<li><p>损失函数：最小化NLL损失（最大似然参数估计），论文采用了<strong>Mask-and-Predict</strong>逐步估计的策略，即输入的$\hat{v}$是$v_{M_a}$的随机$50%\tilde{}100%$mask结果，测试时采用迭代K步，每步保留最置信token的方式, 使用VQ-Decoder从$\hat{v}$解码出估计的$\hat{M}_c$</p>
+<li><p>损失函数：最大似然参数估计采用最小化NLL损失，论文采用了<strong>Mask-and-Predict</strong>逐步估计的策略，即输入的$\hat{v}$是$v_{M_a}$的随机 $50\%-100\%$mask结果，测试时采用迭代K步，每步保留最置信token的方式, 使用VQ-Decoder从$\hat{v}$解码出估计的$\hat{M}_c$</p>
 </li>
 <li></li>
 </ol>
@@ -234,6 +233,22 @@
 
 
 
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
