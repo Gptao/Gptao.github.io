@@ -6,7 +6,7 @@
   <link href="https://guangpintao.github.io/atom.xml" rel="self"/>
   
   <link href="https://guangpintao.github.io/"/>
-  <updated>2024-03-20T06:49:05.494Z</updated>
+  <updated>2024-03-20T07:43:38.967Z</updated>
   <id>https://guangpintao.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://guangpintao.github.io/2024/03/20/Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior/"/>
     <id>https://guangpintao.github.io/2024/03/20/Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior/</id>
     <published>2024-03-20T06:32:37.000Z</published>
-    <updated>2024-03-20T06:49:05.494Z</updated>
+    <updated>2024-03-20T07:43:38.967Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><a href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior" class="headerlink" title="Coarse-to-Fine Amodal Segmentation with Shape Prior"></a>Coarse-to-Fine Amodal Segmentation with Shape Prior</h2><p>论文做的任务是Amodel Segmentation（无模态分割，或者部分遮挡补全分割），最初的一篇论文是CVPR2017年FAIR提出的<a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhu_Semantic_Amodal_Segmentation_CVPR_2017_paper.pdf">Semantic Amodal Segmentation</a>，在分割目标的同时脑补出遮挡目标的完整形状轮廓。<br><img src="/img/image_6.png" alt="alt text"><br>VM是目标可见区域的mask，GT是Amodel Segmask，分割的目标是完成图像中目标可能存在区域的识别。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><a href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior" class="headerlink" title="Coarse-to-Fine Amodal Segmentation with Shape Prior"></a>Coarse-to-Fine Amodal Segmentation with Shape Prior</h2><p>论文做的任务是Amodel Segmentation（无模态分割，或者部分遮挡补全分割），最初的一篇论文是CVPR2017年FAIR提出的<a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhu_Semantic_Amodal_Segmentation_CVPR_2017_paper.pdf">Semantic Amodal Segmentation</a>，在分割目标的同时脑补出遮挡目标的完整形状轮廓。（<strong>outpaint</strong>+<strong>semseg</strong>）<br><br></p><blockquote><p>Amodal object segmentation aims to segment not only the visible parts of an object but also its occluded parts.</p></blockquote><p><img src="/img/image_6.png" alt="alt text"><br><br><br>VM是目标可见区域的mask，GT是Amodel Segmask，分割的目标是完成图像中目标可能存在区域的识别。</p><h4 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h4><ul><li>Reduces the learning space from the pixel-level image space to the vector-quantized latent space – learn a <strong>coarse-grained</strong> amodal segment to  handle <strong>long-range</strong> dependencies.</li><li>Propose a convolution refine module to inject <strong>fine-grained</strong> information and<br>provide a more precise amodal object segmentation based on visual features and coarse-predicted segmentation</li><li>Create a <strong>synthetic</strong> amodal dataset, named as <strong>MOViD-Amodal</strong> (MOViD-A), which can be used for both image and video amodal object segmentation.</li><li>Evaluation on two benchmark datasets: KINS and COCO-A demonstrate the superiority of C2FSeg</li></ul><h4 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h4><p><img src="/img/image-7.png" alt="alt text"></p><center>VQ重建方式根据可见mask和可见视觉特征生成coarse mask, 使用可见特征上的基于卷积attention refine coarse mask </center><h4 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h4>]]></content>
     
     
       
