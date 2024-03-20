@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><span class="toc-text">Coarse-to-Fine Amodal Segmentation with Shape Prior</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-text">方法框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><span class="toc-text">Coarse-to-Fine Amodal Segmentation with Shape Prior</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-text">方法框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">实验设置</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -168,13 +168,18 @@
 
 <h4 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h4><p><img src="/img/image-8.png" alt="alt text"></p>
 <ol>
-<li>使用<strong>Vector-Quantized Latent Space</strong>mask结构先验，使用训练好的Encoder latent表示 + index embedding: $v_{M}=Embed(q(E(M)))$ 作为transformer的输入， 论文说使用现有的VQ-GAN将图像编码到隐空间性能下降，原因是已有VQ-GAN的训练数据与AS不一致，论文采用预训练的ResNet得到图像latent表示作为tranformer输入。</li>
+<li><p>使用<strong>Vector-Quantized Latent Space</strong>mask结构先验，使用训练好的Encoder latent表示 + index embedding: $v_{M}=Embed(q(E(M)))$ 作为transformer的输入， 论文说使用现有的VQ-GAN将图像编码到隐空间性能下降，原因是已有VQ-GAN的训练数据与AS不一致，论文采用预训练的ResNet得到图像latent表示作为tranformer输入。</p>
+</li>
 <li><p>基于上述$v_{img}$和可见分割表示$v_{\hat{M}_v}$（通过附加学习任务得到）自回归预测$v_{M_{a}}$。预测的输入是$cat(v_{img},v_{\hat{M}_v},\hat{v}$) ，$\hat{v}$是跟$v_{\hat{M}_v}$相同维度的全[MASK] token。</p>
 </li>
 <li><p>损失函数：最大似然参数估计采用最小化NLL损失，论文采用了<strong>Mask-and-Predict</strong>逐步估计的策略，即输入的$\hat{v}$是$v_{M_a}$的随机 $50\%-100\%$mask结果，测试时采用迭代K步，每步保留最置信token的方式, 使用VQ-Decoder从$\hat{v}$解码出估计的$\hat{M}_c$</p>
 </li>
-<li></li>
+<li>卷积refine模块的输入是$v_{img}$和$\hat{M}_c$，下采样$\hat{M}_c$， 综合resnet特征和$\hat{M}_c$与$v_{img}$相似度使用卷积得到refined $\hat{M}_a$和$\hat{M}_c$，分别用BCE监督。<br><img src="/img/image-9.png" alt="alt text"></li>
 </ol>
+<blockquote>
+<p>同一个像素可以属于两个不同的类别，还是只关注遮挡目标？ </p>
+</blockquote>
+<h4 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h4><p>数据集： KINS，COCOA， FISHBOWL(video)， MOViD-A(Video)</p>
 
         
         <br />
