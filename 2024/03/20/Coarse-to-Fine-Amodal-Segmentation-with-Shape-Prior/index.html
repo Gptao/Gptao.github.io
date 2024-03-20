@@ -166,7 +166,7 @@
 <h4 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h4><p><img src="/img/image-7.png" alt="alt text"></p>
 <center>VQ重建方式根据可见mask和可见视觉特征生成coarse mask, 使用可见特征上的基于卷积attention refine coarse mask </center>
 
-<h4 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h4><p><img src="/img/image-8.png" alt="alt text"><br>使用<strong>Vector-Quantized Latent Space</strong>获得mask结构先验，但类似VQ-GAN的现有VQ方法是在大规模图像数据集上训练的，用来重建mask效果不好，</p>
+<h4 id="方法细节"><a href="#方法细节" class="headerlink" title="方法细节"></a>方法细节</h4><p><img src="/img/image-8.png" alt="alt text"><br>使用<strong>Vector-Quantized Latent Space</strong>mask结构先验，使用训练好的Encoder latent表示+index embedding:<br> $$v_{M}=Embed(q(E(M)))$$ 作为transformer的输入， 论文说使用现有的VQ-GAN将图像编码到隐空间性能下降，原因是已有VQ-GAN的训练数据与AS不一致，论文采用预训练的ResNet得到图像latent表示作为tranformer输入。</p>
 
         
         <br />
