@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><span class="toc-text">Coarse-to-Fine Amodal Segmentation with Shape Prior</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-text">方法框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">实验设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E4%B8%80%E4%B8%8B%E5%AE%9E%E9%AA%8C%E4%BB%A3%E4%BB%B7%E5%92%8C%E6%8C%87%E6%A0%87"><span class="toc-text">复现一下实验代价和指标</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Coarse-to-Fine-Amodal-Segmentation-with-Shape-Prior"><span class="toc-text">Coarse-to-Fine Amodal Segmentation with Shape Prior</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E6%A1%86%E6%9E%B6"><span class="toc-text">方法框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-text">方法细节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">实验设置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9C%89%E4%BB%B7%E5%80%BC%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%9A-VQGAN%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">有价值的地方： VQGAN的实现和使用</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -181,8 +181,9 @@
 <blockquote>
 <p>同一个像素可以属于两个不同的类别，还是只关注遮挡目标？ </p>
 </blockquote>
+<p><strong>论文提出的C2F-Seg方法并不具有检测能力，需要依赖现有的可见实例分割（AISFormer）的结果进行补全和指标计算。</strong></p>
 <h4 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h4><p>数据集： KINS，COCOA， FISHBOWL(video)， MOViD-A(Video)</p>
-<h4 id="复现一下实验代价和指标"><a href="#复现一下实验代价和指标" class="headerlink" title="复现一下实验代价和指标"></a>复现一下实验代价和指标</h4>
+<h6 id="有价值的地方：-VQGAN的实现和使用"><a href="#有价值的地方：-VQGAN的实现和使用" class="headerlink" title="有价值的地方： VQGAN的实现和使用"></a>有价值的地方： VQGAN的实现和使用</h6>
         
         <br />
         <div id="comment-container">
