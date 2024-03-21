@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%96%B9%E6%B3%95"><span class="toc-text">具体方法</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-text">论文贡献</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%96%B9%E6%B3%95"><span class="toc-text">具体方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-text">实验结果</span></a></li></ol>
 </div>
     
 </div>
@@ -160,10 +160,11 @@
 <li>在大量下游任务上验证pre-trained SegGPT 具有强大的分割能力</li>
 </ul>
 <h4 id="具体方法"><a href="#具体方法" class="headerlink" title="具体方法"></a>具体方法</h4><ul>
-<li>基于Painter设计通用分割任务：<br>Context是具体的分割方式，部分|语义|实例|全景， 输出依然是coloring模式, 支持multi-example 模式</li>
-<li>如何消除Context之间歧义？</li>
+<li>基于Painter设计通用分割任务：<br>Context是具体的分割方式， 输出依然是coloring模式, 颜色代表的含义可能是部分|语义|实例|全景，但sample的color mapping是随机的，使模型关注context而不是颜色，提高灵活性和泛化性</li>
+<li>支持multi-example 模式, Feature ensemble 比 Spatial ensamble更稳定</li>
+<li>In-context tuning on different task specifications : freeze the whole model and initialize a learnable image tensor as the input context</li>
 </ul>
-
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4>
         
         <br />
         <div id="comment-container">
