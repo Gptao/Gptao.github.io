@@ -6,7 +6,7 @@
   <link href="https://guangpintao.github.io/atom.xml" rel="self"/>
   
   <link href="https://guangpintao.github.io/"/>
-  <updated>2024-03-21T07:36:50.946Z</updated>
+  <updated>2024-03-21T07:41:57.031Z</updated>
   <id>https://guangpintao.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://guangpintao.github.io/2024/03/21/Images-Speak-in-Images-A-Generalist-Painter-for-In-Context-Visual-Learning/"/>
     <id>https://guangpintao.github.io/2024/03/21/Images-Speak-in-Images-A-Generalist-Painter-for-In-Context-Visual-Learning/</id>
     <published>2024-03-21T04:01:16.000Z</published>
-    <updated>2024-03-21T07:36:50.946Z</updated>
+    <updated>2024-03-21T07:41:57.031Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Images_Speak_in_Images_A_Generalist_Painter_for_In-Context_Visual_CVPR_2023_paper.pdf">Images Speak in Images: A Generalist Painter for In-Context Visual Learning</a></p><h4 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h4><ul><li>提出视觉任务的<strong>In-Context Learning</strong>， 使用图像定义视觉任务输出的统一表示</li><li>对输出输出图像对做mask image modeling, 使用Vision-prompt形式决定推理时任务</li><li>在包括深度估计，语义分割，人体关键点定位，全景分割等任务上均取得了比较好的效果</li></ul><blockquote><p>we believe that images speak in images, i.e., image itself is a natural interface for general-purpose visual perception.  The core observation is that most dense-prediction vision problems can be formulated as <strong>image inpainting</strong></p></blockquote><h4 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h4><p>NYUv2+ADE20K+MS-COCO+SIDD+LoL等等</p><h4 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h4><p><img src="/img/image-10.png" alt="alt text"><br>使用masked image modeling的方式训练patch<strong>自回归模型</strong>，使用ViT-large模型，masked 区域替换为可学习token vector, mask 70$\%$, 实际为了减小计算量，不是四个图拼接在一起，而是把并行输出的四张图在固定蹭特征拼在一起， 输出使用smooth-$\ell_1$监督， 训练需要8nodes*8GPU (total_bsz = 8x8x32 = 2048).</p><h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="/img/image-11.png" alt="alt text"><br><img src="/img/image-12.png" alt="alt text"></p><h4 id="有价值点"><a href="#有价值点" class="headerlink" title="有价值点"></a>有价值点</h4><p>论证了MIM+patch自回归的能力</p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Images_Speak_in_Images_A_Generalist_Painter_for_In-Context_Visual_CVPR_2023_paper.pdf">Images Speak in Images: A Generalist Painter for In-Context Visual Learning</a></p><h4 id="论文贡献"><a href="#论文贡献" class="headerlink" title="论文贡献"></a>论文贡献</h4><ul><li>提出视觉任务的<strong>In-Context Learning</strong>， 使用图像定义视觉任务输出的统一表示</li><li>对输出输出图像对做mask image modeling, 使用Vision-prompt形式决定推理时任务</li><li>在包括深度估计，语义分割，人体关键点定位，全景分割等任务上均取得了比较好的效果</li></ul><blockquote><p>we believe that images speak in images, i.e., image itself is a natural interface for general-purpose visual perception.  The core observation is that most dense-prediction vision problems can be formulated as <strong>image inpainting</strong></p></blockquote><h4 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h4><p>NYUv2+ADE20K+MS-COCO+SIDD+LoL等等</p><h4 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h4><p><img src="/img/image-10.png" alt="alt text"><br>使用masked image modeling的方式训练patch<strong>自回归模型</strong>，使用ViT-large模型，masked 区域替换为可学习token vector, mask 70$\%$, 实际为了减小计算量，不是四个图拼接在一起，而是把并行输出的四张图在固定蹭特征拼在一起， 输出使用smooth-$\ell_1$监督， 训练需要8nodes*8GPU (total_bsz = 8x8x32 = 2048).</p><h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="/img/image-11.png" alt="alt text"><br><img src="/img/image-12.png" alt="alt text"></p><h4 id="有价值点"><a href="#有价值点" class="headerlink" title="有价值点"></a>有价值点</h4><p>论证了MIM+patch自回归强大的图像重建能力</p>]]></content>
     
     
       

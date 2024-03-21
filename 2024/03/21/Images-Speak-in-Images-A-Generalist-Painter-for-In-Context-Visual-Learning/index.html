@@ -164,7 +164,7 @@
 <h4 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h4><p>NYUv2+ADE20K+MS-COCO+SIDD+LoL等等</p>
 <h4 id="方法框架"><a href="#方法框架" class="headerlink" title="方法框架"></a>方法框架</h4><p><img src="/img/image-10.png" alt="alt text"><br>使用masked image modeling的方式训练patch<strong>自回归模型</strong>，使用ViT-large模型，masked 区域替换为可学习token vector, mask 70$\%$, 实际为了减小计算量，不是四个图拼接在一起，而是把并行输出的四张图在固定蹭特征拼在一起， 输出使用smooth-$\ell_1$监督， 训练需要8nodes*8GPU (total_bsz = 8x8x32 = 2048).</p>
 <h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="/img/image-11.png" alt="alt text"><br><img src="/img/image-12.png" alt="alt text"></p>
-<h4 id="有价值点"><a href="#有价值点" class="headerlink" title="有价值点"></a>有价值点</h4><p>论证了MIM+patch自回归的能力</p>
+<h4 id="有价值点"><a href="#有价值点" class="headerlink" title="有价值点"></a>有价值点</h4><p>论证了MIM+patch自回归强大的图像重建能力</p>
 
         
         <br />
