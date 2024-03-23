@@ -162,7 +162,7 @@
 <h4 id="具体方法"><a href="#具体方法" class="headerlink" title="具体方法"></a>具体方法</h4><ul>
 <li>基于Painter设计通用分割任务：<br>Context是具体的分割方式， 输出依然是coloring模式, 颜色代表的含义可能是部分|语义|实例|全景，但sample的color mapping是随机的，使模型关注context而不是颜色，提高灵活性和泛化性</li>
 <li>支持multi-example 模式, Feature ensemble 比 Spatial ensamble更稳定</li>
-<li>In-context tuning on different task specifications : freeze the whole model and initialize a learnable image tensor as the input context</li>
+<li>在特定任务上做 In-context tuning: 固定模型初始化一个可学习图像tensor(img+mask)作为输入context. </li>
 </ul>
 <h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4>
         

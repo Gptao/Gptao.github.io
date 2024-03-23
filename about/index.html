@@ -135,9 +135,11 @@
 <li>小样本分割不知道怎么样，可以看看jingxiang的论文</li>
 <li>做<strong>seggpt或者VRP-SEG</strong>那样的视觉注册小样本分割(PPR)</li>
 <li>对比分割范式，小样本异常检测模式 + 异常检测</li>
-<li>Setting: 数据量不多条件下，<strong>Zero-shot 开放缺陷分割</strong></li>
+<li>Setting: 数据量不多条件下，<strong>Zero-shot 开放缺陷分割</strong><br>异常检测： 有一定数量的OK图像，没有NG图像，无缺陷定义， 非OK模式即NG<br>对比检测： 只有少量或者一个OK/NG pair，无缺陷定义</li>
 </ul>
 </blockquote>
+<p><strong>SegGPT是有监督的</strong><br>one/few-shot contrastive prompt engineering<br>In context — 异常模式 和 数据类型<br>推理输入：<br> $I_{ok}$ | $I_{ng}$ | $M_{ng}$<br> $I_{ok}$ | $I_{test}$ | $\mathbf{M_{test}}$</p>
+<p>AnomalyGPT 也是有监督的</p>
 
     
     <div id="comment-container">
